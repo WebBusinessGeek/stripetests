@@ -13,5 +13,12 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('cardtest');
+});
+
+Route::post('/', function(){
+    
+   $user = User::find(1);
+    
+    $user->subscription('monthly')->create(Input::get('stripeToken'));
 });
